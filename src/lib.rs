@@ -24,6 +24,11 @@ fn node_parser(node: Node) -> String {
 
 fn element_parser(element: Element) -> String {
     let mut out = format!("{} {{ ", element.name);
+    if let Some(id) = element.id {
+        let res = format!("id: \"{id}\", ");
+        out.push_str(&res);
+    }
+
     for (atbr, val) in &element.attributes {
         let res = if let Some(v) = val {
             format!("{atbr}: \"{v}\"")
