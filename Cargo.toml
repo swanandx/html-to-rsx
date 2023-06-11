@@ -1,0 +1,21 @@
+[package]
+name = "html-to-rsx"
+version = "0.1.0"
+edition = "2021"
+authors = ["swanandx"]
+description = "Convert HTML to RSX, a meta language used by dioxus"
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/swanandx/html-to-rsx"
+homepage = "https://github.com/swanandx/html-to-rsx"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.3.3", features = ["derive"] }
+html_parser = "0.7.0"
+
+[profile.release]
+lto = "thin"
+panic = "abort"
+strip = "symbols"
